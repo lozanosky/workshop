@@ -153,6 +153,10 @@ Only the teleporting player sees the screen fade. Everyone sees the effects and 
 - **Effects are chosen with Teleport FX, not with a particle system field.** A Niagara system picked in a device's Details panel does not show in game in UEFN 43.x, while one referenced from Verse does.
 - The Audio Players you assign are moved by the teleport: do not use them for anything else.
 - The device mesh is invisible in game. Only the effect is visible.
+- Only players are teleported. Vehicles, NPCs, creatures and props are not.
+- Teleports are always active: they cannot be enabled / disabled during the game, and there are no conditions (keys, costs, timers, teams).
+- Teleports only work inside the same island / level.
+- Tested on PC (keyboard). Console and mobile have not been tested.
 
 ## 8. Troubleshooting
 
