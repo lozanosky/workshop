@@ -5,6 +5,8 @@
 A teleport device for your UEFN island, written 100% in Verse.
 Place two (or more) teleports with the same ID: a player who walks up to one sees **[E] Teleport**, presses E, dissolves into a particle effect while the screen fades, and reappears at the linked teleport.
 
+**Video demo:** https://youtu.be/hRsqJ8ySjJ8
+
 ## Contents
 
 - [What's included](#whats-included)
