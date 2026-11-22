@@ -24,8 +24,9 @@ Place two (or more) teleports with the same ID: a player who walks up to one see
 | File / Folder | Description |
 |---|---|
 | `teleport_device.verse` | Verse source (`teleport_device`) |
-| `FX/` | 6 Niagara teleport effects (`Systems/NS_FX_Teleport_Blue`, `Green`, `Magenta`, `Pink`, `Red`, `Violet`) with their materials and textures |
-| `Sounds/` | Departure and arrival sounds (`teleport_out`, `teleport_in`) and an ambient loop |
+| `FX/Systems/` | 6 Niagara teleport effects (`NS_FX_Teleport_Blue`, `Green`, `Magenta`, `Pink`, `Red`, `Violet`) |
+| `FX/Materials/`, `FX/Textures/` | Materials and textures used by the effects |
+| `FX/Sounds/` | Departure and arrival sounds (`teleport_out`, `teleport_in`) and an ambient loop (`teleport_ambient_loop`) |
 | `Teleport.umap` | Ready-to-play demo level with two linked teleports |
 
 ## 1. Try the demo
@@ -34,13 +35,16 @@ Open the project in UEFN, open `Teleport.umap`, click **Launch Session** and wal
 
 ## 2. Use it in your own island
 
-Copy `teleport_device.verse` **and** the `FX` folder into your project's `Content` folder (and the `Sounds` folder if you want the included sounds). Keep them together, at the same level:
+Copy `teleport_device.verse` **and** the `FX` folder into your project's `Content` folder. Keep them together, at the same level:
 
 ```
 Content/
 ├── teleport_device.verse
-├── FX/
-└── Sounds/
+└── FX/
+    ├── Materials/
+    ├── Sounds/
+    ├── Systems/
+    └── Textures/
 ```
 
 The Verse code references the effects in `FX/Systems/` directly. If you move or rename the `FX` folder, or separate it from `teleport_device.verse`, Verse will not compile.
@@ -66,7 +70,7 @@ The player appears **2 m in front** of the destination teleport (the direction o
 
 ### Step 4 - (Optional) Add sounds
 
-Place up to three **Audio Player** devices anywhere in your level, set their sound (for example the ones in `Sounds/`), and assign them to the teleport:
+Place up to three **Audio Player** devices anywhere in your level, set their sound (for example the ones in `FX/Sounds/`), and assign them to the teleport:
 
 | Option | Description |
 |---|---|
