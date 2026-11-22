@@ -1,6 +1,6 @@
 # Teleport Device in Verse (UEFN)
 
-**Version 1.0** · Built and tested with UEFN 43.10
+**Version 1.0** · Built and tested with UEFN 43.12
 
 A teleport device for your UEFN island, written 100% in Verse.
 Place two (or more) teleports with the same ID: a player who walks up to one sees **[E] Teleport**, presses E, dissolves into a particle effect while the screen fades, and reappears at the linked teleport.
@@ -59,7 +59,7 @@ The player appears **2 m in front** of the destination teleport (the direction o
 
 ### Step 3 - (Optional) Pick an effect and fade color
 
-- **Teleport FX:** Blue, Green, Magenta, Pink, Red, Violet, or **NoFX** for no effect at all.
+- **Teleport FX:** Blue, Green, Magenta, Pink, Red, Violet, or **NoFX** for no effect at all. Choose **NoFX** to use your own Niagara effect instead (see [Using your own effect](#using-your-own-effect)).
 - **Fade Color:** color of the screen fade the teleporting player sees.
 
 ### Step 4 - (Optional) Add sounds
@@ -76,7 +76,21 @@ The teleport moves these Audio Players to the right place automatically, so thei
 
 ### Using your own effect
 
-Set **Teleport FX** to **NoFX** and place your own effect at the teleport (a **VFX Spawner** device, a Niagara system or any prop you like). To add your effect to the Teleport FX list instead, add a value to `teleport_fx` and a line to `GetFX()` in the Verse file.
+The included effects are optional. To use your own custom Niagara system:
+
+1. Set **Teleport FX** to **NoFX** on the teleport. The device then shows no effect at all (ambient, departure or arrival), but everything else (prompt, fade, sounds) keeps working.
+2. Place your own effect at the teleport: drag your Niagara system into the level, or use a **VFX Spawner** device or any prop you like.
+
+To add your effect to the Teleport FX list instead (so it also plays on departure and arrival), add a value to `teleport_fx` and a line to `GetFX()` in the Verse file, for example:
+
+```verse
+teleport_fx := enum:
+    ...
+    MyEffect
+
+# in GetFX()
+teleport_fx.MyEffect => option{MyFolder.NS_MyEffect_asset}
+```
 
 ### More than two teleports
 
